@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @pomodoro.title
+%p
+  %b Started at:
+  = @pomodoro.started_at
+%p
+  %b Finished at:
+  = @pomodoro.finished_at
+%p
+  %b Interrupted at:
+  = @pomodoro.interrupted_at
+%p
+  %b User:
+  = @pomodoro.user
+
+= link_to 'Edit', edit_pomodoro_path(@pomodoro)
+\|
+= link_to 'Back', pomodori_path

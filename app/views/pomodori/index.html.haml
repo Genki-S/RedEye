@@ -1,0 +1,27 @@
+%h1 Listing pomodori
+
+%table
+  %tr
+    %th Title
+    %th Started at
+    %th Finished at
+    %th Interrupted at
+    %th User
+    %th
+    %th
+    %th
+
+  - @pomodori.each do |pomodoro|
+    %tr
+      %td= pomodoro.title
+      %td= pomodoro.started_at
+      %td= pomodoro.finished_at
+      %td= pomodoro.interrupted_at
+      %td= pomodoro.user
+      %td= link_to 'Show', pomodoro
+      %td= link_to 'Edit', edit_pomodoro_path(pomodoro)
+      %td= link_to 'Destroy', pomodoro, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Pomodoro', new_pomodoro_path

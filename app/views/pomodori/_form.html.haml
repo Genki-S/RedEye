@@ -1,0 +1,12 @@
+= simple_form_for(@pomodoro) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :title
+    = f.input :started_at
+    = f.input :finished_at
+    = f.input :interrupted_at
+    = f.association :user
+
+  .form-actions
+    = f.button :submit
