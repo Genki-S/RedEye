@@ -25,6 +25,11 @@ class Api::V1::PomodoriController < ApplicationController
       pomodoro.reflection = reflection
     end
 
+    if params.has_key?(:interruption)
+      interruption = Interruption.create(interruption_params)
+      pomodoro.interruption = interruption
+    end
+
     if pomodoro.save
       render json: pomodoro, status: :ok
     else
@@ -39,5 +44,9 @@ class Api::V1::PomodoriController < ApplicationController
 
     def reflection_params
       params.require(:reflection).permit(:evaluation)
+    end
+
+    def interruption_params
+      params.require(:interruption).permit(:reason)
     end
 end

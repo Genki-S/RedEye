@@ -82,5 +82,24 @@ describe 'Pomodori API v1' do
         expect(new_pomodoro.reflection.evaluation).to eq(evaluation)
       end
     end
+
+    context 'when interruption is provided' do
+      let(:reason) { 'email' }
+      let(:interruption_params) do
+        {
+          reason: reason
+        }
+      end
+
+      before do
+        params.merge!(interruption: interruption_params)
+      end
+
+      it 'creates new pomodoro with interruption' do
+        post '/api/v1/pomodori', params
+        new_pomodoro = Pomodoro.last
+        expect(new_pomodoro.interruption.reason).to eq(reason)
+      end
+    end
   end
 end
