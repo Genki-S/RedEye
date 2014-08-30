@@ -1,5 +1,6 @@
 #main
-  %ul
-    %li(v-repeat="pomodori")
-      = image_tag 'pomodoro_icon.svg'
-      %span(v-text="title")
+  #pomodori-graph(v-if="pomodori")
+    %ul
+      %li.pomodoro(v-repeat="pomodori" v-style='top: topPos, left: leftPos' v-transition)
+        = image_tag 'pomodoro_icon.svg'
+        .title(v-text="title")

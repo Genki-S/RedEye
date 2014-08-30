@@ -16,6 +16,10 @@ $(document).ready ->
         )
         jqxhr.done (response) ->
           pomodori = response
+          for pomodoro in pomodori
+            time = moment(pomodoro.started_at)
+            minutes = time.hour() * 60 + time.minute()
+            pomodoro.leftPos = (minutes / (24 * 60)) * 100 + '%'
           this.$data.pomodori = pomodori
     )
   )(Vue)

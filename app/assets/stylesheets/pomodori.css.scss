@@ -1,3 +1,21 @@
-// Place all the styles related to the pomodori controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+ul {
+  list-style: none;
+}
+
+#main {
+  position: relative;
+}
+
+.pomodoro {
+  position: absolute;
+}
+
+.pomodoro {
+  transition: all 1s ease;
+}
+
+.pomodoro.v-enter,
+.pomodoro.v-leave {
+  left: 0;
+  top: 0;
+}

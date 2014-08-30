@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require vue
+//= require moment
 //= require turbolinks
 //= require foundation
 //= require_tree .
