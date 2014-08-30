@@ -7,6 +7,11 @@ class Api::V1::PomodoriController < ApplicationController
     pomodoro = Pomodoro.new(pomodoro_params)
     pomodoro.user = user
 
+    if params.has_key?(:reflection)
+      reflection = Reflection.create(reflection_params)
+      pomodoro.reflection = reflection
+    end
+
     if pomodoro.save
       render json: pomodoro, status: :ok
     else
@@ -16,6 +21,10 @@ class Api::V1::PomodoriController < ApplicationController
 
   private
     def pomodoro_params
-      params.permit(:title, :started_at, :finished_at, :interrupted_at)
+      params.permit(:title, :started_at, :finished_at, :interrupted_at, :reflection)
+    end
+
+    def reflection_params
+      params.require(:reflection).permit(:evaluation)
     end
 end
