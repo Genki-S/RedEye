@@ -27,6 +27,12 @@ This application is developed under:
 
 Learn more about [Installing PostgreSQL](https://wiki.postgresql.org/wiki/Detailed_installation_guides).
 
+### Install Bundles
+
+```
+$ bundle install
+```
+
 ### Start up the rails server
 
 1. Start postgres deamon (`$ postgres -D datadir`)
