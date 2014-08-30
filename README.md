@@ -33,6 +33,12 @@ Learn more about [Installing PostgreSQL](https://wiki.postgresql.org/wiki/Detail
 $ bundle install
 ```
 
+### Initialize Database
+
+```
+$ rake db:setup
+```
+
 ### Start up the rails server
 
 1. Start postgres deamon (`$ postgres -D datadir`)
