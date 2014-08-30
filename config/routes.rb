@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :pomodori, :only => [:create]
+      resources :pomodori, :only => [:index, :create]
     end
   end
 end

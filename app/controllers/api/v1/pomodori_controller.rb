@@ -2,6 +2,15 @@ class Api::V1::PomodoriController < ApplicationController
 
   protect_from_forgery with: :null_session
 
+  def index
+    user = User.where(uid: params[:uid]).first
+    unless user
+      render json: {}, status: 401
+      return
+    end
+    render json: user.pomodori.to_json(include: :reflection)
+  end
+
   def create
     user = User.find_by(uid: params[:uid])
     pomodoro = Pomodoro.new(pomodoro_params)

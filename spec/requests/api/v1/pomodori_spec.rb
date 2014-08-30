@@ -1,11 +1,32 @@
 require 'spec_helper'
 
 describe 'Pomodori API v1' do
+  let(:uid) { '1024' }
+  let!(:user) { create(:user, uid: uid) }
+
+  describe 'GET /pomodori' do
+    let(:params) do
+      { uid: user.uid }
+    end
+
+    before do
+      user.pomodori.create()
+    end
+
+    it 'returns pomodori of user with uid of params[:uid]' do
+      get '/api/v1/pomodori', params
+      obj = JSON.parse(response.body)
+      expect(Pomodoro.find(obj.first['id'])).to eq(user.pomodori.first)
+    end
+
+    it 'returns 401 if params[:uid] is not provided' do
+      get '/api/v1/pomodori'
+      expect(response.status).to eq(401)
+    end
+  end
+
   describe 'POST /pomodori' do
     let(:title) { 'title' }
-    let(:uid) { '1024' }
-    let!(:user) { create(:user, uid: uid) }
-
     let(:params) do
       {
         uid: uid,
