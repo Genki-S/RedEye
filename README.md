@@ -1,23 +1,11 @@
-Recodoro
-================
+RedEye
+======
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+Record your pomodoro through API and see your achievements. (heroku is super WIP)
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
+## Getting Started (development)
 
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
--------------
+### Install Ruby and Rails
 
 This application requires:
 
@@ -26,23 +14,73 @@ This application requires:
 
 Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
 
-Getting Started
----------------
+### Install PostgreSQL
 
-Documentation and Support
--------------------------
+This application is developed under:
 
-Issues
--------------
+- postgres (PostgreSQL) 9.3.5
 
-Similar Projects
-----------------
+Learn more about [Installing PostgreSQL](https://wiki.postgresql.org/wiki/Detailed_installation_guides).
 
-Contributing
-------------
+### Start up the rails server
 
-Credits
--------
+1. Start postgres deamon (`$ postgres -D datadir`)
 
-License
--------
+   `man postgres` for more about -D option.
+
+2. Start rails server and other goodies (`$ guard`)
+
+3. Access [http://localhost:3000](http://localhost:3000)
+
+### Misc.
+
+Facebook login might not work for non-developer user accounts.
+I'll do something about it.
+
+## Documentation and Support
+
+Not available for now. Sorry, I'm working on it.
+
+## Issue Report
+
+[Submit an issue](https://github.com/Genki-S/RedEye/issues).
+
+## Similar Projects
+
+All similar projects comes with task management system bundled with them.
+e.g.:
+
+- [KanbanFlow](https://kanbanflow.com)
+- [TeamViz](http://www.teamviz.com)
+
+You know, we org mode users (and other task management geeks) have our way to do that.
+
+## Contributing
+
+Pull Requests Welcome!
+
+## Credits
+
+TODO
+
+## License
+
+TODO
+
+## TODO
+
+- API Boost
+  - [ ] Make it possible to pass evaluation for each pomodoro
+- Web App Boost
+  - [ ] User can see his/her pomodori
+  - [ ] List up pomodori by days
+  - [ ] Design: time representation
+  - [ ] Design: evaluation representation
+  - [ ] Design: make a logo
+- Org mode Boost
+  - [ ] Make elisp an el-get package
+- Other Boosts
+  - [ ] Write Readme
+  - [ ] Think better name
+  - [ ] Make facebook login open (without test user/developer settings)
+  - [ ] What to do with task switch (when a task is finished before 25min.)
