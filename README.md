@@ -87,17 +87,17 @@ TODO
 ## TODO
 
 - API Boost
-  - [ ] Make it possible to pass evaluation for each pomodoro
+  - [X] Make it possible to pass evaluation for each pomodoro
 - Web App Boost
-  - [ ] User can see his/her pomodori
-  - [ ] List up pomodori by days
-  - [ ] Design: time representation
+  - [X] User can see his/her pomodori
+  - [X] List up pomodori by days
+  - [X] Design: time representation
   - [ ] Design: evaluation representation
   - [ ] Design: make a logo
 - Org mode Boost
   - [ ] Make elisp an el-get package
 - Other Boosts
-  - [ ] Write Readme
+  - [X] Write Readme
   - [ ] Think better name
   - [ ] Make facebook login open (without test user/developer settings)
   - [ ] What to do with task switch (when a task is finished before 25min.)
