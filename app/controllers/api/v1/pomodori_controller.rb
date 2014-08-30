@@ -34,7 +34,7 @@ class Api::V1::PomodoriController < ApplicationController
 
   private
     def pomodoro_params
-      params.permit(:title, :started_at, :finished_at, :interrupted_at, :reflection)
+      params.permit(:title, :started_at, :finished_at, :interrupted_at)
     end
 
     def reflection_params
