@@ -1,10 +1,7 @@
 class PomodoriController < ApplicationController
   before_action :set_pomodoro, only: [:show, :edit, :update, :destroy]
 
-  # GET /pomodori
-  # GET /pomodori.json
   def index
-    @pomodori = Pomodoro.all
   end
 
   # GET /pomodori/1
