@@ -3,6 +3,11 @@ RedEye
 
 Record your pomodoro through API and see your achievements. (heroku is super WIP)
 
+It's meant to be used from [Emacs org mode](http://orgmode.org/).
+
+Elisp package is coming! For now, see
+[dirty script in my dotfiles](https://github.com/Genki-S/dotfiles/blob/master/emacs.d/my-scripts/org-recodoro.el).
+
 ## Getting Started (development)
 
 ### Install Ruby and Rails
