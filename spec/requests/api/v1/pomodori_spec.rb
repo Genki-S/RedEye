@@ -10,18 +10,38 @@ describe 'Pomodori API v1' do
     end
 
     before do
-      user.pomodori.create()
+      user.pomodori << FactoryGirl.create(:pomodoro)
+      user.pomodori << FactoryGirl.create(:pomodoro)
+      user.pomodori << FactoryGirl.create(:pomodoro, started_at: 1.day.ago)
     end
 
     it 'returns pomodori of user with uid of params[:uid]' do
       get '/api/v1/pomodori', params
       obj = JSON.parse(response.body)
-      expect(Pomodoro.find(obj.first['id'])).to eq(user.pomodori.first)
+      expect(Pomodoro.find(obj.first['id']).user).to eq(user)
+    end
+
+    it 'returns pomodori which is started today' do
+      get '/api/v1/pomodori', params
+      obj = JSON.parse(response.body)
+      expect(obj.count).to eq(user.pomodori.started_on(Date.today).count)
     end
 
     it 'returns 401 if params[:uid] is not provided' do
       get '/api/v1/pomodori'
       expect(response.status).to eq(401)
+    end
+
+    context 'with date parameter' do
+      before do
+        params.merge!(date: 1.day.ago.to_date.to_s)
+      end
+
+      it 'returns pomodori which is started on params[:date]' do
+        get '/api/v1/pomodori', params
+        obj = JSON.parse(response.body)
+        expect(obj.count).to eq(user.pomodori.started_on(1.day.ago).count)
+      end
     end
   end
 

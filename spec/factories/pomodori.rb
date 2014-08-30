@@ -2,10 +2,10 @@
 
 FactoryGirl.define do
   factory :pomodoro do
-    title "MyString"
-    started_at "2014-08-01 07:47:45"
-    finished_at "2014-08-01 07:47:45"
-    interrupted_at "2014-08-01 07:47:45"
+    title "Task"
+    started_at Date.today
+    finished_at Date.today
+    interrupted_at nil
     user nil
   end
 end

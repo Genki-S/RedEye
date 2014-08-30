@@ -8,7 +8,11 @@ class Api::V1::PomodoriController < ApplicationController
       render json: {}, status: 401
       return
     end
-    render json: user.pomodori.to_json(include: :reflection)
+
+    date = Date.parse(params[:date]) if params[:date]
+    date ||= Date.today
+
+    render json: user.pomodori.started_on(date).to_json(include: :reflection)
   end
 
   def create
